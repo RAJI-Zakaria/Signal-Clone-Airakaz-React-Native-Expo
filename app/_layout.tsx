@@ -1,19 +1,32 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { Slot, Stack } from "expo-router";
 
-export default function App() {
+const RootLayout = () => {
   return (
-    <View style={styles.container}>
-      <Text>Airakaz - React is awesome</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Stack>
+      <Stack.Screen
+        name="index"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="profile"
+        options={{
+          headerTitle: "Profile",
+        }}
+      />
+    </Stack>
   );
-}
+};
+
+export default RootLayout;
 
 const styles = StyleSheet.create({
   container: {
+    display: "flex",
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
